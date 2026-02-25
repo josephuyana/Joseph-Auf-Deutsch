@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Tipografía */
+      @import url('https://fonts.googleapis.com/css2?family=Futura:wght@400;700&amp;display=swap');
+      
+      text {
+        font-family: 'Futura', 'Segoe UI', 'Helvetica Neue', sans-serif;
+        text-anchor: middle;
+        alignment-baseline: middle;
+        /* Asegura que el punto de transformación sea el centro del texto para que escalen hacia adentro correctamente */
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      /* ESTILOS BASE */
+      .data-text { font-size: 32px; letter-spacing: 1.5px; opacity: 0; }
+      .original { fill: #868e96; font-weight: 500; } /* Gris un poco más claro para contraste */
+      .synthetic { fill: #e03131; font-weight: 700; } /* Rojo más intenso */
+      
+      /* Duración total del ciclo */
+      :root { --total-time: 24s; }
+
+      /* --- ANIMACIONES DEL MODELO CENTRAL --- */
+      .model-container {
+        transform-origin: 960px 540px;
+        animation: mainModelTimeline var(--total-time) ease-in-out infinite;
+      }
+
+      .spin-ring {
+        transform-origin: 960px 540px;
+        animation: spinSlow 12s linear infinite;
+      }
+
+      .inner-chip {
+        transform-origin: center; transform-box: fill-box;
+        animation: coreCorruption var(--total-time) linear infinite;
+      }
+
+      .corruption-halo {
+        transform-origin: 960px 540px;
+        animation: haloPulse var(--total-time) ease-out infinite;
+      }
+
+      .crack-line {
+        stroke: #e03131; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round;
+        stroke-dasharray: 250; stroke-dashoffset: 250; /* Oculto inicialmente */
+      }
+      .c1 { animation: crackAppear1 var(--total-time) ease-out infinite; }
+      .c2 { animation: crackAppear2 var(--total-time) ease-out infinite; }
+      .c3 { animation: crackAppear3 var(--total-time) ease-out infinite; }
+
+      /* --- KEYFRAMES DEL MODELO --- */
+      @keyframes mainModelTimeline {
+        0% { transform: scale(0); opacity: 0; }
+        5% { transform: scale(1); opacity: 1; }
+        40% { transform: scale(1.3); } /* Crecimiento saludable hasta aquí */
+        60% { transform: scale(1.5); } /* Crecimiento contaminado */
+        80% { transform: scale(1.65); filter: drop-shadow(0 0 15px rgba(224, 49, 49, 0.3)); } /* Corrupción máxima */
+        95% { transform: scale(1.7); opacity: 1; }
+        100% { transform: scale(0.8); opacity: 0; } /* Reseteo suave */
+      }
+
+      @keyframes spinSlow { 100% { transform: rotate(360deg); } }
+
+      @keyframes coreCorruption {
+        0%, 45% { fill: #e9ecef; } /* Fase sana */
+        55%, 75% { fill: #ffc9c9; } /* Fase de transición */
+        85%, 95% { fill: #ffa8a8; } /* Fase corrupta */
+        100% { fill: #e9ecef; }
+      }
+
+      @keyframes haloPulse {
+        0%, 50% { opacity: 0; transform: scale(0.8); stroke-width: 2; }
+        60% { opacity: 0.3; transform: scale(1); stroke-width: 5; }
+        80%, 90% { opacity: 0.6; transform: scale(1.1); stroke-width: 10; }
+        100% { opacity: 0; transform: scale(1.2); }
+      }
+
+      /* Keyframes para las grietas (aparecen tarde) */
+      @keyframes crackAppear1 {
+        0%, 70% { stroke-dashoffset: 250; opacity: 0; }
+        80%, 95% { stroke-dashoffset: 0; opacity: 1; }
+        100% { opacity: 0; }
+      }
+      @keyframes crackAppear2 {
+        0%, 75% { stroke-dashoffset: 250; opacity: 0; }
+        85%, 95% { stroke-dashoffset: 0; opacity: 1; }
+        100% { opacity: 0; }
+      }
+      @keyframes crackAppear3 {
+        0%, 72% { stroke-dashoffset: 250; opacity: 0; }
+        82%, 95% { stroke-dashoffset: 0; opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+
+      /* --- ANIMACIONES DE FLUJO DE DATOS (CONSUMO REAL) --- */
+      /* El objetivo es que translate(0,0) scale(0) ocurra exactamente en el centro */
+      
+      /* GRUPO 1: Datos Originales (Fase temprana 5% - 40%) */
+      .d-orig-1 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 1s; }
+      .d-orig-2 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 3s; }
+      .d-orig-3 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 5s; }
+      .d-orig-4 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 7s; }
+      .d-orig-5 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 8.5s; }
+
+      /* GRUPO 2: Mezcla (Fase media 40% - 60%) */
+      .d-mix-o1 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 10s; }
+      .d-mix-s1 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 11s; }
+      .d-mix-o2 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 12.5s; }
+      .d-mix-s2 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 13.5s; }
+
+      /* GRUPO 3: Datos Sintéticos Masivos (Fase tardía 60% - 90%) */
+      .d-syn-1 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 15s; }
+      .d-syn-2 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 16s; }
+      .d-syn-3 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 17s; }
+      .d-syn-4 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 18s; }
+      .d-syn-5 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 19s; }
+      .d-syn-6 { animation: feedCenter var(--total-time) ease-in infinite; animation-delay: 20s; }
+
+
+      /* Plantilla maestra para el consumo de datos. 
+         Comienza lejos, se vuelve visible, y termina en el centro (0,0) con escala 0 */
+      @keyframes feedCenter {
+          0% { opacity: 0; transform: var(--start-pos) scale(0.8); }
+          5% { opacity: 1; transform: var(--start-pos) scale(1); }
+          /* El punto clave: llegar al centro y desaparecer */
+          20% { opacity: 1; transform: translate(0,0) scale(0.1); } 
+          22% { opacity: 0; transform: translate(0,0) scale(0); }
+          100% { opacity: 0; transform: translate(0,0) scale(0); }
+      }
+
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#f8f9fa"/>
+  <circle cx="960" cy="540" r="400" fill="none" stroke="#e9ecef" stroke-width="1" opacity="0.5"/>
+  <circle cx="960" cy="540" r="700" fill="none" stroke="#e9ecef" stroke-width="1" opacity="0.3"/>
+
+  <g transform="translate(960, 540)">
+    
+    <text class="data-text original d-orig-1" style="--start-pos: translate(-700px, -300px);">datos</text>
+    <text class="data-text original d-orig-2" style="--start-pos: translate(700px, 350px);">información</text>
+    <text class="data-text original d-orig-3" style="--start-pos: translate(-600px, 400px);">texto humano</text>
+    <text class="data-text original d-orig-4" style="--start-pos: translate(650px, -450px);">muestras reales</text>
+    <text class="data-text original d-orig-5" style="--start-pos: translate(0px, -550px);">conocimiento</text>
+
+    <text class="data-text original d-mix-o1" style="--start-pos: translate(-750px, 100px);">datos verídicos</text>
+    <text class="data-text synthetic d-mix-s1" style="--start-pos: translate(750px, -150px);">datos (IA)</text>
+    <text class="data-text original d-mix-o2" style="--start-pos: translate(-300px, 500px);">fuentes</text>
+    <text class="data-text synthetic d-mix-s2" style="--start-pos: translate(300px, -500px);">texto (IA)</text>
+
+    <text class="data-text synthetic d-syn-1" style="--start-pos: translate(-700px, -400px);">contenido (IA)</text>
+    <text class="data-text synthetic d-syn-2" style="--start-pos: translate(700px, 400px);">basura (IA)</text>
+    <text class="data-text synthetic d-syn-3" style="--start-pos: translate(-650px, 350px);">datos sintéticos</text>
+    <text class="data-text synthetic d-syn-4" style="--start-pos: translate(650px, -350px);">ruido (IA)</text>
+    <text class="data-text synthetic d-syn-5" style="--start-pos: translate(0px, 600px);">bucle (IA)</text>
+    <text class="data-text synthetic d-syn-6" style="--start-pos: translate(0px, -600px);">error (IA)</text>
+  </g>
+
+
+  <g class="model-container">
+    <circle cx="960" cy="540" r="110" class="corruption-halo" fill="none" stroke="#e03131"/>
+    
+    <circle cx="960" cy="540" r="150" fill="none" stroke="#adb5bd" stroke-width="2" stroke-dasharray="30 20" class="spin-ring" opacity="0.7"/>
+    
+    <circle cx="960" cy="540" r="100" fill="#ffffff" stroke="#ced4da" stroke-width="5"/>
+    
+    <rect x="910" y="490" width="100" height="100" rx="25" class="inner-chip" />
+
+    <path class="crack-line c1" d="M 960 440 L 980 490 L 950 520 L 990 560 L 960 640" />
+    <path class="crack-line c2" d="M 850 540 L 890 510 L 930 550 L 960 540" />
+    <path class="crack-line c3" d="M 1070 540 L 1030 570 L 1000 530 L 980 540" />
+  </g>
+
+</svg>

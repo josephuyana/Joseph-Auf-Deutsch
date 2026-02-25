@@ -1,0 +1,3 @@
+Heute möchte ich über mein Leben in Deutschland erzählen. Am Anfang ist es stressig weil die Eingewöhnung sehr kompliziert ist.Obwohl ich es liebe, alleine zu leben, das Heimweh ist naturlich schwer. In Deutschland zu leben hat viele Vorteile, zum Beispiel sind die Öffentlichen Verkehrsmittel sind richtig pünktlich deshalb kannst du google maps nuzten, um irgendwo zu gehen. Das Wetter ist auch gut, manchmal ist es sehr kalt aber ich glaube dass es normal ist. du kannst nur warme Kleidung tragen und das ist alles. Die schwerigste teile für mich ist die Kulturunterschiede weil ich latino bin. Einerseits sind junge Menschen sehr freundlich aber andererseits sind alte Menschen ein bisschen umsympatsich oder rassistisch
+
+Zusammenfassend muss ich mich noch daran gewöhnen.

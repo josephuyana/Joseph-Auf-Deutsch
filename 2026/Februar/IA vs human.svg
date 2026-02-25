@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Futura:wght@400;700&amp;display=swap');
+
+      * {
+        font-family: 'Futura', system-ui, -apple-system, sans-serif;
+      }
+
+      /* Fondos y colores base */
+      .bg { fill: #f8f9fa; }
+      .text-dark { fill: #343a40; }
+      .text-mid { fill: #495057; }
+      .text-light { fill: #868e96; }
+
+      /* Tiempos de las Escenas */
+      #scene1 {
+        animation: fadeOut 1s ease-in-out forwards 10s;
+      }
+      #scene2 {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards 10.5s;
+      }
+
+      @keyframes fadeOut {
+        to { opacity: 0; visibility: hidden; }
+      }
+      @keyframes fadeIn {
+        to { opacity: 1; visibility: visible; }
+      }
+
+      /* Animación Escena 1: IA */
+      .ai-core {
+        transform-origin: 960px 540px;
+        animation: growAI 9.5s ease-in-out forwards;
+      }
+
+      @keyframes growAI {
+        0% { transform: scale(0.9); }
+        100% { transform: scale(1.35); }
+      }
+
+      .word {
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        text-anchor: middle;
+      }
+
+      /* Movimiento de las palabras hacia el centro */
+      @keyframes fw1 { 0% { transform: translate(0,0) scale(1); opacity:0; } 20% { opacity:1; } 80% { opacity:1; } 100% { transform: translate(660px, 290px) scale(0.4); opacity:0; } }
+      @keyframes fw2 { 0% { transform: translate(0,0) scale(1); opacity:0; } 20% { opacity:1; } 80% { opacity:1; } 100% { transform: translate(-660px, 290px) scale(0.4); opacity:0; } }
+      @keyframes fw3 { 0% { transform: translate(0,0) scale(1); opacity:0; } 20% { opacity:1; } 80% { opacity:1; } 100% { transform: translate(760px, -210px) scale(0.4); opacity:0; } }
+      @keyframes fw4 { 0% { transform: translate(0,0) scale(1); opacity:0; } 20% { opacity:1; } 80% { opacity:1; } 100% { transform: translate(-760px, -210px) scale(0.4); opacity:0; } }
+      @keyframes fw5 { 0% { transform: translate(0,0) scale(1); opacity:0; } 20% { opacity:1; } 80% { opacity:1; } 100% { transform: translate(0px, 440px) scale(0.4); opacity:0; } }
+
+      .w1 { animation: fw1 3s infinite 0s; }
+      .w2 { animation: fw2 3s infinite 0.6s; }
+      .w3 { animation: fw3 3s infinite 1.2s; }
+      .w4 { animation: fw4 3s infinite 1.8s; }
+      .w5 { animation: fw5 3s infinite 2.4s; }
+
+      /* Animación Escena 2: Humano */
+      .human-core {
+        transform-origin: 960px 600px;
+        animation: growHuman 9.5s ease-in-out forwards 10.5s;
+      }
+
+      @keyframes growHuman {
+        0% { transform: scale(0.8); }
+        100% { transform: scale(1.25); }
+      }
+
+      /* Animación de entrada de los sentidos (burbuja elástica suave) */
+      @keyframes popIn {
+        0% { opacity: 0; transform: scale(0.5) translateY(30px); }
+        70% { transform: scale(1.05) translateY(-5px); }
+        100% { opacity: 1; transform: scale(1) translateY(0); }
+      }
+
+      .s1 { transform-origin: 600px 300px; animation: popIn 1s ease-out forwards 11.5s; opacity: 0; }
+      .s2 { transform-origin: 1320px 300px; animation: popIn 1s ease-out forwards 13.0s; opacity: 0; }
+      .s3 { transform-origin: 600px 600px; animation: popIn 1s ease-out forwards 14.5s; opacity: 0; }
+      .s4 { transform-origin: 1320px 600px; animation: popIn 1s ease-out forwards 16.0s; opacity: 0; }
+      .s5 { transform-origin: 960px 220px; animation: popIn 1s ease-out forwards 17.5s; opacity: 0; }
+
+      /* Estilos de Subtítulos */
+      .subtitle {
+        font-size: 38px;
+        text-anchor: middle;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" class="bg" />
+
+  <g id="scene1">
+    
+    <g class="ai-core">
+      <circle cx="960" cy="540" r="70" class="text-mid" />
+      <circle cx="960" cy="540" r="130" stroke="#adb5bd" stroke-width="4" stroke-dasharray="15 15" fill="none" />
+      <circle cx="960" cy="540" r="190" stroke="#dee2e6" stroke-width="2" fill="none" />
+      
+      <circle cx="960" cy="410" r="15" fill="#6c757d" />
+      <circle cx="848" cy="605" r="12" fill="#868e96" />
+      <circle cx="1072" cy="605" r="18" fill="#adb5bd" />
+      
+      <path d="M960 425 L960 470 M858 595 L900 570 M1062 595 L1020 570" stroke="#adb5bd" stroke-width="6" stroke-linecap="round"/>
+    </g>
+
+    <text x="300" y="250" class="word text-light w1">TEXTO</text>
+    <text x="1620" y="250" class="word text-light w2">DATOS</text>
+    <text x="200" y="750" class="word text-light w3">APRENDIZAJE</text>
+    <text x="1720" y="750" class="word text-light w4">MODELOS</text>
+    <text x="960" y="100" class="word text-light w5">LENGUAJE</text>
+
+    <text x="960" y="1000" class="subtitle text-dark">La IA aprende principalmente de texto y datos.</text>
+  </g>
+
+
+  <g id="scene2">
+    
+    <g class="human-core">
+      <circle cx="960" cy="480" r="60" class="text-mid" />
+      <path d="M860 750 Q860 580 960 580 Q1060 580 1060 750" fill="#6c757d" />
+    </g>
+
+    <g class="s1">
+      <path d="M550 300 Q600 240 650 300 Q600 360 550 300" stroke="#868e96" stroke-width="8" fill="none" stroke-linejoin="round"/>
+      <circle cx="600" cy="300" r="18" class="text-mid"/>
+      <text x="600" y="400" font-size="28" class="text-mid" text-anchor="middle" font-weight="bold" letter-spacing="2">VER</text>
+    </g>
+
+    <g class="s2">
+      <path d="M1290 280 A 30 30 0 0 1 1290 320 M1310 260 A 50 50 0 0 1 1310 340 M1330 240 A 70 70 0 0 1 1330 360" stroke="#868e96" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <text x="1320" y="400" font-size="28" class="text-mid" text-anchor="middle" font-weight="bold" letter-spacing="2">OÍR</text>
+    </g>
+
+    <g class="s3">
+      <path d="M590 600 Q 610 560 610 600 Q 610 620 590 620 Q 570 620 570 600 Q 570 560 590 600" stroke="#868e96" stroke-width="8" fill="none" />
+      <path d="M600 540 Q 630 520 620 490 M640 560 Q 670 540 660 510" stroke="#adb5bd" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <text x="600" y="680" font-size="28" class="text-mid" text-anchor="middle" font-weight="bold" letter-spacing="2">OLER</text>
+    </g>
+
+    <g class="s4">
+      <path d="M1270 580 Q1320 630 1370 580" stroke="#868e96" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M1300 595 Q1320 650 1340 595" stroke="#adb5bd" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <text x="1320" y="680" font-size="28" class="text-mid" text-anchor="middle" font-weight="bold" letter-spacing="2">GUSTO</text>
+    </g>
+
+    <g class="s5">
+      <path d="M960 250 V170 A12 12 0 0 1 984 170 V270 M984 190 A12 12 0 0 1 1008 190 V250 M936 210 A12 12 0 0 1 960 210" stroke="#868e96" stroke-width="8" fill="none" stroke-linecap="round" />
+      <text x="960" y="320" font-size="28" class="text-mid" text-anchor="middle" font-weight="bold" letter-spacing="2">TACTO</text>
+    </g>
+
+    <text x="960" y="1000" class="subtitle text-dark">Los humanos aprenden a través de experiencias sensoriales.</text>
+  </g>
+
+</svg>

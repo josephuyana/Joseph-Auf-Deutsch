@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #1a1a1a; margin: 0; }
+        #mi-svg { width: 100px; height: 100px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <svg id="mi-svg" viewBox="0 0 100 100">
+        <circle id="pelota" cx="50" cy="20" r="20" fill="#00d1ff" />
+    </svg>
+
+    <script>
+        // Animación con GSAP
+        gsap.to("#pelota", {
+            duration: 1.5,
+            y: 60,                // Se desplaza 60 unidades hacia abajo
+            fill: "#ff007a",      // Cambia de azul a rosa
+            ease: "bounce.out",   // Efecto de rebote al caer
+            repeat: -1,           // Bucle infinito
+            yoyo: true,           // Hace que la animación regrese al inicio
+            delay: 0.5
+        });
+    </script>
+</body>
+</html>
